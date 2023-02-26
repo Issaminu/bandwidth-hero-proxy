@@ -12,10 +12,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Append A
-        run: |
-          echo "a" >> file.txt
-          git config --global user.name 'Issam Boubcher'
-          git config --global user.email 'boubche.issam@gmail.com'
-          git add file.txt
-          git commit -m "Append 'a' to file.txt"
-          git push
+        run: echo "a" >> file.txt
+      - name: config 1
+        run: git config --global user.name 'Issam Boubcher'
+      - name: config 2
+        run: git config --global user.email 'boubche.issam@gmail.com'
+      - name: add file to commit
+        run: git add file.txt
+      - name: commit
+        run: git commit -m "Append 'a' to file.txt"
+      - name: push
+        run: git commit -m "Append 'a' to file.txt"

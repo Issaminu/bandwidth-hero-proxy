@@ -1,22 +1,21 @@
-name: Append File
+name: Append A to file every 20 minutes
+
 on:
   schedule:
-    - cron: "*/20 * * * *" # run every 20 minutes
+    - cron: "*/20 * * * *"
+
 jobs:
-  append-file:
+  append-a:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: causeRailwayRedeployAction.txt
-        uses: juliangruber/write-file-action@v1.0.0
-        with:
-          path: ./causeRailwayRedeployAction.txt # specify your file path here
-          content: "." # specify your content here
-          write-mode: append # specify your write mode here
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7.2.1 # You can change this to another action if you prefer
-        with:
-          author_name: Isam Boubcher # specify your name here
-          author_email: your.email@example.com # specify your email here
-          message: "Causing a redeploy" # specify your commit message here
+
+      - name: Append A
+        run: |
+          echo "a" >> file.txt
+          git config --global user.name 'Issam Boubcher'
+          git config --global user.email 'boubche.issam@gmail.com'
+          git add file.txt
+          git commit -m "Append 'a' to file.txt"
+          git push

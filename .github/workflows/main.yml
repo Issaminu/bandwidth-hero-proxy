@@ -1,9 +1,13 @@
-name: Append A to file every 20 minutes
-
+name: Append A to file every 30 minutes
+# The goal of this workflow is to cause a commit to happen to the repo every 30 minutes.
+# This is done to cause Railway to detect a new commit, and proceed to pull and redeploy the project.
+# The project is redeployed every ~30 minutes because I noticed it kept eating more memory as time went by.
+# Meaning that there was potentially a memory leak, or some memory de allocation wasn't taking place.
+# As a band-aid solution to the problem, the project is redeployed every 30 minutes which makes it restart with low ram usage.
 on:
   schedule:
     - cron: '*/30 * * * *'
-  workflow_dispatch:  # <-- manual trigger
+  workflow_dispatch:
 
 jobs:
   append-a:
@@ -15,8 +19,8 @@ jobs:
       - name: Append A
         run: |
           echo "a" >> file.txt
-          git config --global user.name 'Your Name'
-          git config --global user.email 'your-email@example.com'
+          git config --global user.name 'Issaminu'
+          git config --global user.email 'boubcher.issam@gmail.com'
           git add file.txt
           git commit -m "Append 'a' to file.txt"
           git push

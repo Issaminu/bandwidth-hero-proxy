@@ -2,7 +2,7 @@ name: Append A to file every 20 minutes
 
 on:
   schedule:
-    - cron: "*/20 * * * *"
+    - cron: "*/1 * * * *"
   workflow_dispatch:  # <-- manual trigger
 
 jobs:

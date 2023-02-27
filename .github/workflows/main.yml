@@ -19,8 +19,8 @@ jobs:
       - name: Append A
         run: |
           echo "a" >> file.txt
-          git config --global user.name 'Issaminu'
-          git config --global user.email 'boubcher.issam@gmail.com'
+          git config --global user.name 'Auto-Workflow'
+          git config --global user.email 'autoWorkflow@gmail.com'
           git add file.txt
           git commit -m "Append 'a' to file.txt"
           git push

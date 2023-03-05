@@ -1,4 +1,4 @@
-name: Append 'a' to `file.txt` every 30 minutes
+name: Append 'a' to file.txt every 30 minutes
 # The goal of this workflow is to cause a commit to happen to the repo every 30 minutes.
 # This is done to cause Railway to detect a new commit, and proceed to pull and redeploy the project.
 # The project is redeployed every ~30 minutes because I noticed it kept eating more memory as time went by.
@@ -22,5 +22,5 @@ jobs:
           git config --global user.name 'Auto-Workflow'
           git config --global user.email 'autoWorkflow@gmail.com'
           git add file.txt
-          git commit -m "Append 'a' to `file.txt`"
+          git commit -m "Append 'a' to file.txt"
           git push

@@ -1,4 +1,4 @@
-name: Remove `file.txt` every 6 months
+name: Remove file.txt every 6 months
 # The goal of this workflow is to cause a commit to happen to the repo every 6 months, on the 15th of the month at 04:35AM (the time has no significance).
 # This is done to counteract the ever growing size of `file.txt`.
 # According to my napkin math, every year, the file.txt will gain around 30-something megabytes of space.
@@ -16,11 +16,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Remove `file.txt`
+      - name: Remove file.txt
         run: |
           rm file.txt
           git config --global user.name 'Auto-Workflow'
           git config --global user.email 'autoWorkflow@gmail.com'
           git add file.txt
-          git commit -m "Remove `file.txt`"
+          git commit -m "Remove file.txt"
           git push
